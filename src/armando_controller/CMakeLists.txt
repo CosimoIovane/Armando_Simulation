@@ -13,11 +13,13 @@ find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
+find_package(aruco_msgs REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(kdl_parser REQUIRED)
 find_package(orocos_kdl REQUIRED)
 find_package(urdf REQUIRED)
+find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 # ------------------------------------------------------
@@ -64,11 +66,20 @@ ament_target_dependencies(armando_ik_kdl_node
 )
 target_link_libraries(armando_ik_kdl_node orocos-kdl)
 
+add_executable(aruco_target_adapter_node src/aruco_target_adapter_node.cpp)
+ament_target_dependencies(aruco_target_adapter_node
+  rclcpp
+  aruco_msgs
+  geometry_msgs
+  tf2
+  tf2_geometry_msgs
+)
 
 install(TARGETS 
   armando_controller_node
   armando_pick_place_node
   armando_ik_kdl_node
+  aruco_target_adapter_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -78,6 +89,6 @@ install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
-ament_export_dependencies(control_msgs rclcpp std_msgs trajectory_msgs kdl_parser tf2_ros)
+ament_export_dependencies(control_msgs rclcpp std_msgs trajectory_msgs aruco_msgs kdl_parser tf2 tf2_ros)
 
 ament_package()

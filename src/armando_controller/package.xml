@@ -13,11 +13,13 @@
   <build_depend>trajectory_msgs</build_depend>
   <build_depend>yaml-cpp</build_depend>
 
+  <depend>aruco_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>kdl_parser</depend>
   <depend>orocos_kdl</depend>
   <depend>urdf</depend>
+  <depend>tf2</depend>
   <depend>tf2_ros</depend>
   <depend>tf2_geometry_msgs</depend>
   

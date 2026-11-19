@@ -179,6 +179,14 @@
       </link>
     </model>
 
+    <!-- ===== Marker ArUco ID 0 ===== -->
+    <!-- Adatta x y z roll pitch yaw in base alla posizione/orientamento della telecamera -->
+    <include>
+      <uri>model://aruco_marker_0</uri>
+      <name>aruco_marker_0</name>
+      <pose>0.25 0.0 0.41 0 0 0</pose>
+    </include>
+
     <!-- 4 separatori disposti a croce dal centro verso i bordi del tavolo (Aggiornati) -->
     <!-- 
     <model name="separator_1">
